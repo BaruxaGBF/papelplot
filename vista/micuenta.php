@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['ID_USUARIO'])) {
+    header("Location: ../index.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,18 +30,20 @@
         </script>
 
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/librerias/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/librerias/jquery.validate.min.js"></script>
+    <script src="js/logica/miCuenta.js"></script>
     <title>Papelplot</title>
 </head>
 
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="userLogged.php" class="logo">
                 <img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot">
             </a>
 
@@ -94,8 +103,11 @@
         <div class="containerm">
             <div class="miCuenta">
                 <h1> Mi cuenta </h1> <br>
-                <form class="row g-3">
-                    <h4>Datos de usuario</h4>
+                <form class="row g-3" id="formUser" method="post" action="">
+                    <div class="titulo"> 
+                        <h4>Datos de usuario</h4>
+                        <i id ="dtuser" class="fas fa-user-edit edit"></i>
+                    </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Email</label>
                         <input name="correo" type="email" class="form-control" id="inputEmail4">
@@ -104,45 +116,45 @@
                         <label for="inputPassword4" class="form-label">Password</label>
                         <input name="password" type="password" class="form-control" id="inputPassword4">
                     </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress2" class="form-label">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2"
-                            placeholder="Apartment, studio, or floor">
+
+                    <div class="titulo"> 
+                        <h4>Datos personales</h4>
+                        <i id="dtuser2" class="fas fa-user-edit edit"></i>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="inputnombre1" class="form-label">Primer nombre</label>
+                        <input name="primerNombre" type="text" class="form-control" id="inputnombre1">
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">State</label>
-                        <select id="inputState" class="form-select">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
+                    <div class="col-md-6">
+                        <label for="inputnombre2" class="form-label">Segundo nombre</label>
+                        <input name="segundoNombre" type="text" class="form-control" id="inputnombre2">
                     </div>
-                    <div class="col-md-2">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+
+                    <div class="col-md-6">
+                        <label for="inputapellido1" class="form-label">Primer apellido</label>
+                        <input name="primerApellido" type="text" class="form-control" id="inputapellido1">
                     </div>
+                    <div class="col-md-6">
+                        <label for="inputapellido2" class="form-label">Segundo apellido</label>
+                        <input name="segundoApellido" type="text" class="form-control" id="inputapellido2">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input name="telefono" type="number" class="form-control" id="telefono">
+                    </div>
+
                     <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <button id="btn-updateUser" type="button" class="btn btn-success">Guardar cambios</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <input name="idUsuario" id="idUsuario" type="hidden" value="<?php if (isset($_SESSION['ID_USUARIO'])) 
+							            echo $_SESSION['ID_USUARIO']; 
+						            ?>">
 
     <footer class="footer">
         <div class="footer-logo">

@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['ID_USUARIO'])) {
-        header("Location: ../index.html");
-    }
+session_start();
+if (!isset($_SESSION['ID_USUARIO'])) {
+    header("Location: ../index.html");
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
             <div class="Search input-search">
                 <form action="input">
                     <input class="enter" type="search" placeholder="Buscar...">
-                    <button class="bSearch" type ="submit">
+                    <button class="bSearch" type="submit">
                         Buscar
                     </button>
                 </form>
@@ -52,15 +52,15 @@
 
                         <div class="userMenu">
                             <ul>
-                                <li class="userName"> 
+                                <li class="userName">
                                     <h4>
                                         Hola,
-                                    <?php if (isset($_SESSION['ID_USUARIO'])) 
-							            echo $_SESSION['NOMBRE_USUARIO']; 
-						            ?>
+                                        <?php if (isset($_SESSION['ID_USUARIO']))
+                                            echo $_SESSION['NOMBRE_USUARIO'];
+                                        ?>
                                     </h4>
                                 </li>
-                                <li><a href="#"> Mi cuenta</a></li>
+                                <li><a href="micuenta.php"> Mi cuenta</a></li>
                                 <li><a href="#"> Compras</a></li>
                                 <li id="logout"><a href="../controlador/accion/act_logout.php"> Salir</a></li>
                             </ul>
@@ -92,7 +92,7 @@
         <p class="txBaner">Papeleria al por mayor y al detal </p>
         <button class="btn btn-success" onclick="location.href='https://youtu.be/dQw4w9WgXcQ'">Mas Informacion</button>
     </div>
-    
+
     <section>
         <div class="container">
             <Article class="categorias">

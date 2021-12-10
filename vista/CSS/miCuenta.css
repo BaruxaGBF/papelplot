@@ -93,6 +93,37 @@ nav span {
     transform: scale(1.2);
 }
 
+.titulo{
+    display: flex;
+    flex-direction: row;
+}
+
+.edit{
+    margin-left: 0.5em;
+    padding-top: 0.55em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border: solid 0.5px;
+    border-radius: 1em;
+    background: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: .25s ease;
+    margin-bottom: 0.5px;
+}
+
+.edit:hover{
+    color: #198754;
+}
+
+.error{
+    color: red;
+}
+
+input.error{
+    border: 1px solid red;
+}
+
 footer {
     display: inline-block;
     background-color: green;

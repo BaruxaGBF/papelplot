@@ -35,6 +35,7 @@ $(document).ready(function () {
 
         if($("#correoini").val() == ""){
             Swal.fire({
+                title: "Campo de correo vacio.",
                 text: 'Por favor ingrese su correo.',
                 icon: 'warning'
             })
@@ -42,6 +43,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.correo.test($("#correoini").val())){
             Swal.fire({
+                title: "Campo de correo invalido.",
                 text: 'Por favor ingrese un correo valido, ejemplo: "abcd@example.ext".',
                 icon: 'warning'
             })
@@ -49,6 +51,7 @@ $(document).ready(function () {
 
         }else if($("#passini").val() == ""){
             Swal.fire({
+                title: "Campo de contraseña vacio.",
                 text: 'Por favor ingrese su contraseña.',
                 icon: 'warning'
             })
@@ -64,6 +67,7 @@ $(document).ready(function () {
     $("#registForm").submit(function (e) { 
         if($("#correoregis").val() == ""){
             Swal.fire({
+                title: "Campo de correo vacio.",
                 text: 'Por favor ingrese su correo.',
                 icon: 'warning'
             })
@@ -71,6 +75,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.correo.test($("#correoregis").val())){
             Swal.fire({
+                title: "Campo de correo invalido.",
                 text: 'Por favor ingrese un correo valido, ejemplo: "abcd@example.ext".',
                 icon: 'warning'
             })
