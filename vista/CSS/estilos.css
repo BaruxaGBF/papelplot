@@ -303,12 +303,23 @@ nav span {
 .categorias {
     padding: 0.5em;
     margin-top: 2em;
-    border-bottom: 1px solid #198754;
     box-sizing: border-box;
 }
 
-.ofertas {
-    margin-top: 2em;
+.tiraArticulos{
+    overflow-x: scroll;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.contenedortira{
+    display: flex;
+}
+
+.contenedortira .card{
+    width: 100%;
+    flex-shrink: 0;
+    margin-right: 1rem;
 }
 
 footer {
