@@ -20,6 +20,7 @@ function autenticarUsuario(correo, password){
             iniciar = response.estado;
             if(!response.estado){
                 Swal.fire({
+                    title: "Datos incorrectos.",
                     text: "Correo o contraseña invalido, por favor asegurese de estar registrado.",
                     icon: 'error'
                 })
@@ -83,6 +84,7 @@ $(document).ready(function () {
 
         }else if($("#passregis").val() == ""){
             Swal.fire({
+                title: "Campo de contraseña vacio.",
                 text: 'Por favor ingrese una contraseña.',
                 icon: 'warning'
             })
@@ -90,6 +92,7 @@ $(document).ready(function () {
 
         }else if($("#pass2regis").val() == ""){
             Swal.fire({
+                title: "Campo de confirmar contraseña vacio.",
                 text: 'Por favor confirme su contraseña.',
                 icon: 'warning'
             })
@@ -97,6 +100,7 @@ $(document).ready(function () {
 
         }else if($("#passregis").val() != $("#pass2regis").val()){
             Swal.fire({
+                title: "Las contraseñas no coinciden.",
                 text: 'La contraseña que ingreso no coincide con su confirmación, por favor digitela nuevamente.',
                 icon: 'warning'
             })
@@ -104,6 +108,7 @@ $(document).ready(function () {
 
         }else if($("#fnameregis").val() == ""){
             Swal.fire({
+                title: "Campo de primer nombre vacio.",
                 text: 'Por favor ingrese su primer nombre.',
                 icon: 'warning'
             })
@@ -111,6 +116,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.nombre.test($("#fnameregis").val())){
             Swal.fire({
+                title: "Campo de primer nombre invalido.",
                 text: 'Por favor ingrese su primer nombre, evite caracteres especiales "@/*-+".',
                 icon: 'warning'
             })
@@ -118,6 +124,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.segundoNombre.test($("#mnameregis").val())){
             Swal.fire({
+                title: "Campo de segundo nombre invalido.",
                 text: 'Por favor ingrese su segundo nombre, evite caracteres especiales "@/*-+".',
                 icon: 'warning'
             })
@@ -125,6 +132,7 @@ $(document).ready(function () {
 
         }else if($("#ape1regis").val() == ""){
             Swal.fire({
+                title: "Campo de primer apellido vacio.",
                 text: 'Por favor ingrese su primer apellido.',
                 icon: 'warning'
             })
@@ -132,6 +140,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.nombre.test($("#ape1regis").val())){
             Swal.fire({
+                title: "Campo de primer apellido invalido.",
                 text: 'Por favor ingrese su primer apellido, evite caracteres especiales "@/*-+".',
                 icon: 'warning'
             })
@@ -139,6 +148,7 @@ $(document).ready(function () {
     
         }else if($("#ape2regis").val() == ""){
             Swal.fire({
+                title: "Campo de segundo apellido vacio.",
                 text: 'Por favor ingrese su segundo apellido.',
                 icon: 'warning'
             })
@@ -146,6 +156,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.nombre.test($("#ape2regis").val())){
             Swal.fire({
+                title: "Campo de segundo apellido invalido.",
                 text: 'Por favor ingrese su segundo apellido, evite caracteres especiales "@/*-+".',
                 icon: 'warning'
             })
@@ -153,6 +164,7 @@ $(document).ready(function () {
     
         }else if($("#tel").val() == ""){
             Swal.fire({
+                title: "Campo de teléfono vacio.",
                 text: 'Por favor ingrese su número de teléfono.',
                 icon: 'warning'
             })
@@ -160,6 +172,7 @@ $(document).ready(function () {
 
         }else if(!expresiones.telefono.test($("#tel").val())){
             Swal.fire({
+                title: "Campo de teléfono invalido.",
                 text: 'Por favor ingrese un número valído entre 7 y 14 digitos.',
                 icon: 'warning'
             })
