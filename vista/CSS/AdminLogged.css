@@ -1,0 +1,39 @@
+.grid{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+@media screen and (max-width: 760px) {
+    .grid{
+      grid-template-columns: 1fr;
+
+    }
+  }
+  
+#Head{
+
+    text-align: center;
+    
+}
+
+#contenido{
+    margin: 2%;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+
+.Tablas{
+    padding: 1em;
+}
+
+header{
+    background-color: green ;
+}
+#opc *{
+    color: white;
+}
+
+#opc *:hover{
+    border: 1px solid black;
+    border-radius: 0.5em;
+}

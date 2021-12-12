@@ -20,7 +20,7 @@ if ($user != null) {
     $_SESSION['NOMBRE_USUARIO'] = $user->getprimerNombre();
 
     if ($user->getesAdmin() == 1) {
-        header("Location: ../../vista/administradorUsuarios.php");
+        header("Location: ../../vista/AdminLogged.php");
     } else {
         header("Location: ../../vista/userLogged.php");
     }

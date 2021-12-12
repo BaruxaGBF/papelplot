@@ -2,7 +2,7 @@
 
   session_start();
 
-  require_once (__DIR__."/../mdb/mdbArticulo.php");
+  require_once (__DIR__."/../../mdb/mdbArticulo.php");
 
   $Articulo=verArticulos();
 
