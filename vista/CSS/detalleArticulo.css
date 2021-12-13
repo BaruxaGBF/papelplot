@@ -1,0 +1,9 @@
+#comentarios{
+    border-top: 1px solid green;
+}
+
+.coment{
+    border: 1px solid rgba(128, 128, 128, 0.541);
+    border-radius: 1rem;
+    padding: 0.5em;
+}

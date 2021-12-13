@@ -6,18 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="vista/CSS/estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
     <script src="vista/js/librerias/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="vista/js/logica/pop-upLogin.js"></script>
     <script src="vista/js/logica/validarFormularios.js"></script>
+    <script src="vista/js/logica/updateIndex.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <title>Papelplot</title>
 </head>
 
@@ -85,10 +94,12 @@
                     <h2> Inicia sesión en Papelplot</h2>
                     <P> Por favor ingresa tus datos en el siguiente formulario</P>
                     <form method="post" action="controlador/accion/act_login.php" id="loginForm">
-                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico" id="correoini">
-                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña" id="passini">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoini">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passini">
                         <button class="ini-sesion" type="submit">Iniciar sesión</button>
-                        <button id="btnRegistro" class="ini-registrate" >Regístrate</button>
+                        <button id="btnRegistro" class="ini-registrate">Regístrate</button>
                     </form>
                     <a href="#">¿Olvidaste tu contraseña? recuperala aquí</a><br>
                     <a href="#"><i class="iconlog fab fa-google"></i></a>
@@ -99,14 +110,22 @@
                     <h2> Regístrate en Papelplot</h2>
                     <P> Por favor ingresa tus datos en el siguiente formulario</P>
                     <form method="post" action="controlador/accion/act_registrar.php" id="registForm">
-                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico" id="correoregis">
-                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña" id="passregis">
-                        <input name="password2" type="password" class="login-pass" placeholder="Confirme su contraseña" id="pass2regis">
-                        <input name="primerNombre" type="text" class="login-email" placeholder="Digite su primer nombre" id="fnameregis">
-                        <input name="segundoNombre" type="text" class="login-email" placeholder="Digite su segundo nombre, opcional" id="mnameregis">
-                        <input name="primerApellido" type="text" class="login-email" placeholder="Digite su primer apellido" id="ape1regis">
-                        <input name="segundoApellido" type="text" class="login-email" placeholder="Digite su segundo apellido" id="ape2regis">
-                        <input name="telefono" type="number" class="login-email" placeholder="Digite su teléfono" id="tel">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoregis">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passregis">
+                        <input name="password2" type="password" class="login-pass" placeholder="Confirme su contraseña"
+                            id="pass2regis">
+                        <input name="primerNombre" type="text" class="login-email" placeholder="Digite su primer nombre"
+                            id="fnameregis">
+                        <input name="segundoNombre" type="text" class="login-email"
+                            placeholder="Digite su segundo nombre, opcional" id="mnameregis">
+                        <input name="primerApellido" type="text" class="login-email"
+                            placeholder="Digite su primer apellido" id="ape1regis">
+                        <input name="segundoApellido" type="text" class="login-email"
+                            placeholder="Digite su segundo apellido" id="ape2regis">
+                        <input name="telefono" type="number" class="login-email" placeholder="Digite su teléfono"
+                            id="tel">
                         <button id="btnRegistrar" class="ini-registrate" type="submit">Regístrarse</button>
                     </form>
                 </div>
@@ -120,7 +139,6 @@
         <div class="container">
             <Article class="categorias">
                 <div class="row">
-
                     <div class="w-100"></div>
 
                     <div class="col-md-4">
@@ -129,19 +147,31 @@
                             <h2>Categorías</h2>
                         </div>
 
-                        <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-5 bg-body rounded" data-bs-ride="carousel">
+                        <div id="carouselExampleDark"
+                            class="carousel carousel-dark slide shadow p-3 mb-5 bg-body rounded"
+                            data-bs-ride="carousel">
                             <div style="margin: 2px">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9"
+                                        aria-label="Slide 2"></button>
                                 </div>
 
                                 <div class="carousel-inner">
@@ -185,12 +215,14 @@
                                     </div>
                                 </div>
 
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
 
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -199,156 +231,28 @@
                     </div>
 
                     <div class="col-md-8 ">
-                        <h2>Podría interesarte...</h2>
+                        <h2>Lo más nuevo en nuestra tienda...</h2>
                         <div class="tiraArticulos">
                             <div class="contenedortira">
 
-                                <div class="card" style="width: 18rem;">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-
-                                <div class="card" style="width: 18rem;">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-
-                                <div class="card" style="width: 18rem;">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-
-                                <div class="card" style="width: 18rem;">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-
-                                <div class="card" style="width: 18rem;">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class=" col-md-12 mt-4 mb-4">
-                        <h2> Porque lo bueno también puede ser barato!</h2> <br> 
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            <div class="col">
-                                <div class="card">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img src="vista/img/ejemploProducto.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <h2> Porque lo bueno también puede ser barato!</h2> <br>
+                        <div class="row row-cols-1 row-cols-md-3 g-4" id="articulosBaratos">
                         </div>
-
                     </div>
 
                     <div class="col-md-12 mt-4 text-center">
-                        <h2>¿Quieres pasar por tu pedido? ¡Aquí nos vemos!</h2> <br> 
+                        <h2>¿Quieres pasar por tu pedido? ¡Aquí nos vemos!</h2> <br>
                         <p>Av. el Progreso #40-36, Barranquilla, Atlántico</p>
 
                         <div class="responsive-iframe">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.466970942056!2d-74.80551072162321!3d10.992273838256468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d61a4d76987%3A0x175ec38e81b4aa7e!2sPapelplot!5e0!3m2!1ses!2sco!4v1639247960388!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.466970942056!2d-74.80551072162321!3d10.992273838256468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d61a4d76987%3A0x175ec38e81b4aa7e!2sPapelplot!5e0!3m2!1ses!2sco!4v1639247960388!5m2!1ses!2sco"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
 

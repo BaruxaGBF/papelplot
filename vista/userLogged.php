@@ -19,7 +19,8 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/librerias/jquery-3.6.0.min.js"></script>
+    <script src="js/logica/updateUser.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -98,13 +99,14 @@ if (!isset($_SESSION['ID_USUARIO'])) {
             <Article class="categorias">
                 <div class="row">
 
-                    <div class="col">
-                        <h2>Categorías</h2>
-                    </div>
-
                     <div class="w-100"></div>
 
-                    <div class="col">
+                    <div class="col-md-4">
+
+                        <div>
+                            <h2>Categorías</h2>
+                        </div>
+
                         <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-5 bg-body rounded" data-bs-ride="carousel">
                             <div style="margin: 2px">
                                 <div class="carousel-indicators">
@@ -172,90 +174,35 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                 </button>
                             </div>
                         </div>
-
                     </div>
 
-                    <div class="col">
-                        <div class="card shadow p-3 mb-5 bg-body rounded">
-                            <img src="img/10.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="col-md-8 ">
+                        <h2>Lo más nuevo en nuestra tienda...</h2>
+                        <div class="tiraArticulos">
+                            <div class="contenedortira">
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card shadow p-3 mb-5 bg-body rounded">
-                            <img src="img/10.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+                    <div class=" col-md-12 mt-4 mb-4">
+                        <h2> Porque lo bueno también puede ser barato!</h2> <br>
+                        <div class="row row-cols-1 row-cols-md-3 g-4" id="articulosBaratos">
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card shadow p-3 mb-5 bg-body rounded">
-                            <img src="img/10.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+                    <div class="col-md-12 mt-4 text-center">
+                        <h2>¿Quieres pasar por tu pedido? ¡Aquí nos vemos!</h2> <br>
+                        <p>Av. el Progreso #40-36, Barranquilla, Atlántico</p>
+
+                        <div class="responsive-iframe">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.466970942056!2d-74.80551072162321!3d10.992273838256468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d61a4d76987%3A0x175ec38e81b4aa7e!2sPapelplot!5e0!3m2!1ses!2sco!4v1639247960388!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
 
                 </div>
             </Article>
 
-            <article class="ofertas">
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-
-                    <div class="col">
-                        <div class="card">
-                            <img src="img/ticket-576335.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card">
-                            <img src="img/ticket-576335.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card">
-                            <img src="img/ticket-576335.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card">
-                            <img src="img/ticket-576335.svg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </article>
         </div>
     </section>
 

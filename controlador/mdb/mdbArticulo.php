@@ -31,3 +31,15 @@ function eliminarArticulo($idArticulo){
     $dao->eliminarArticulo($idArticulo);
 }
 
+function ultimasActualizaciones(){
+    $dao=new ArticuloDAO();
+    $articulo = $dao->ultimasActualizaciones();
+    return $articulo;
+}
+
+function articulosBaratos(){
+    $dao=new ArticuloDAO();
+    $articulo = $dao->articulosBaratos();
+    return $articulo;
+}
+
