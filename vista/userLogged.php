@@ -70,7 +70,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
                     <span>|</span>
 
-                    <a href="">
+                    <a href="carritoUser.php">
                         <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
                         <i class="iconNav fas fa-shopping-cart"></i>
                     </a>

@@ -14,7 +14,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
     <link rel="stylesheet" type="text/css" href="CSS/userLog.css">
-    <link rel="stylesheet" type="text/css" href="CSS/detalleArticulo.css">
+    <link rel="stylesheet" type="text/css" href="CSS/carrito.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -22,7 +22,6 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/logica/detalleArticulo.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -69,20 +68,10 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                             </ul>
                         </div>
                     </div>
-
                     <span>|</span>
-
-                    <a href="carritoUser.php">
-                        <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
-                        <i class="iconNav fas fa-shopping-cart"></i>
-                    </a>
-
+                    <a href=""><i class="iconNav fas fa-shopping-cart"></i></a>
                     <span>|</span>
-
-                    <a href="https://wa.me/573135493346" target="_blank">
-                        <!-- <img class ="iconItem" src="img/whats.png" alt="contacto"> -->
-                        <i class="iconNav fab fa-whatsapp"></i>
-                    </a>
+                    <a href="https://wa.me/573135493346" target="_blank"><i class="iconNav fab fa-whatsapp"></i></a>
                 </div>
             </nav>
         </div>
@@ -90,47 +79,75 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="card mb-3 mt-3 ">
-                    <div class="row g-0">
-                        <div class="col-md-5 p-5">
-                            <img id="imgArt" src="img/cuadernoFlamenco.jpg" class="img-fluid rounded mx-auto d-block" alt="...">
-                        </div>
-                        <div class="col-md-7 d-flex flex-column">
+            <div class="row mt-5" id="artCarrito">
+                <h1 class="mt-2"> Mi carrito</h1>
+                <div class="row row-cols-1 row-cols-md-4 ">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title" id="nombreArticulo"></h5>
-                                <h6 class="card-subtitle mb-3 mt-2" id="puntuación"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h6>
-                                <h6 class="card-subtitle mb-2">Descripción</h6>
-                                <p class="card-text" id="descripcion"></p>
-                                <h4 id="precio"></h4>
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             </div>
-                            <div class="card-footer d-flex m-0">
-                                <a href="#" class="btn btn-success">Agregar al carrito</a> 
-                                <select class="form-select" aria-label="Default select example" id="nItems">
-                                    <option selected id="max"></option>
-                                </select>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Detalles</a>
+                                <span>Cantidad:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a short card.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Detalles</a>
+                                <span>Cantidad:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Detalles</a>
+                                <span>Cantidad:</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Detalles</a>
+                                <span>Cantidad:</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <h2>Comentarios</h2>
+            <div class="row mt-4">
+                <div class="col-12 mb-2">
+                    <span class="precio">Precio Total: &nbsp</span><span class="precio" >$785458</span>
                 </div>
-                <div class="col-12" class="comentar">
-                    <h4 class="col-12">Hacer un comentario</h4>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="txtComent"></textarea>
-                        <label for="floatingTextarea">Comentar</label>
-                        <a href="#" class="btn btn-success mt-3" id="hacerComentario">Hacer comentario</a>
+                <div>
+                    <div class="col-12">
+                    <button type="button" class="btn btn-success btn-lg">Continuar compra</button>
                     </div>
                 </div>
-
-                <div class="col-12 mt-4" id="comentarios">
-                </div>
             </div>
+
         </div>
     </section>
 

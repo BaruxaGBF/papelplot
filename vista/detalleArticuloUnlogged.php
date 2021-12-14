@@ -138,7 +138,7 @@
                                 <h4 id="precio"></h4>
                             </div>
                             <div class="card-footer d-flex m-0">
-                                <a href="#" class="btn btn-success">Agregar al carrito</a>
+                                <a id="addCarrito" href="#" class="btn btn-success">Agregar al carrito</a>
                                 <select class="form-select" aria-label="Default select example" id="nItems">
                                     <option selected id="max"></option>
                                 </select>

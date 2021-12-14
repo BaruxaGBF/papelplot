@@ -20,6 +20,11 @@ $(document).ready(function () {
         enviarComentario(idArticulo,$("#txtComent").val());
     });
 
+    $("#addCarrito").click(function (e) { 
+        alert("presionaste carrtio" + $("#nItems option:selected").val());
+        e.preventDefault(); 
+    });
+
 });
 
 function verArticulo(idArticulo){
@@ -79,7 +84,6 @@ function insertarComentarios(response) {
     let comentarios = '';
 
     $.each(response, function(i) {
-        console.log(response[i].idUsuario);
         comentarios ='<div class="col-12 mt-4 mb-4 coment"><h5 class="col-12">User_'+response[i].idusuario+'</h5><div class="col-12 mt-2">'+response[i].comentario+'</div></div>';
         $("#comentarios").append(comentarios);
         comentarios ='';
