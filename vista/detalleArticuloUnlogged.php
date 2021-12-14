@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['ID_USUARIO'])) {
-    header("Location: ../index.html");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,6 +16,8 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/logica/detalleArticulo.js"></script>
+    <script src="js/logica/validarDesdeVista.js"></script>
+    <script src="js/logica/pop-upLogin.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +25,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 </head>
 
 <body>
-    <header>
+<header>
         <div class="container header-content">
             <a href="#" class="logo">
                 <img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot">
@@ -48,45 +43,83 @@ if (!isset($_SESSION['ID_USUARIO'])) {
             <nav>
                 <div class="navItem nav-content">
 
-                    <div class="userinfo">
-                        <button type="button" class="btUser">
-                            <i class="iconNav far fa-user"></i>
-                        </button>
-
-                        <div class="userMenu">
-                            <ul>
-                                <li class="userName">
-                                    <h4>
-                                        Hola,
-                                        <?php if (isset($_SESSION['ID_USUARIO']))
-                                            echo $_SESSION['NOMBRE_USUARIO'];
-                                        ?>
-                                    </h4>
-                                </li>
-                                <li><a href="micuenta.php"> Mi cuenta</a></li>
-                                <li><a href="#"> Compras</a></li>
-                                <li id="logout"><a href="../controlador/accion/act_logout.php"> Salir</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <button type="button" class="btlogin">
+                        <i class="iconNav far fa-user"></i>
+                    </button>
 
                     <span>|</span>
 
                     <a href="">
-                        <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
+                        <!-- <img class ="iconItem" src="vista/img/107831.png" alt="carrito"> -->
                         <i class="iconNav fas fa-shopping-cart"></i>
                     </a>
 
                     <span>|</span>
 
                     <a href="https://wa.me/573135493346" target="_blank">
-                        <!-- <img class ="iconItem" src="img/whats.png" alt="contacto"> -->
+                        <!-- <img class ="iconItem" src="vista/img/whats.png" alt="contacto"> -->
                         <i class="iconNav fab fa-whatsapp"></i>
                     </a>
                 </div>
             </nav>
         </div>
+
     </header>
+
+    <div class="pop-up">
+        <div class="pop-up-wrap">
+            <div class="pop-up-title" id="pop-title">
+                <h2>Papelplot</h2>
+                <P> Papeleria al por mayor y al detal</P>
+            </div>
+            <div class="pop-up-login">
+                <div class="rayitah"></div>
+                <i class="far fa-times-circle" id="closepop"></i>
+
+                <div class="tlogin">
+                    <h2> Inicia sesión en Papelplot</h2>
+                    <P> Por favor ingresa tus datos en el siguiente formulario</P>
+                    <form method="post" action="../controlador/accion/act_login.php" id="loginForm">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoini">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passini">
+                        <button class="ini-sesion" type="submit">Iniciar sesión</button>
+                        <button id="btnRegistro" class="ini-registrate">Regístrate</button>
+                    </form>
+                    <a href="#">¿Olvidaste tu contraseña? recuperala aquí</a><br>
+                    <a href="#"><i class="iconlog fab fa-google"></i></a>
+                    <a href="#"><i class="iconlog fab fa-facebook"></i></a>
+                </div>
+
+                <div class="tRegistro">
+                    <h2> Regístrate en Papelplot</h2>
+                    <P> Por favor ingresa tus datos en el siguiente formulario</P>
+                    <form method="post" action="../controlador/accion/act_registrar.php" id="registForm">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoregis">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passregis">
+                        <input name="password2" type="password" class="login-pass" placeholder="Confirme su contraseña"
+                            id="pass2regis">
+                        <input name="primerNombre" type="text" class="login-email" placeholder="Digite su primer nombre"
+                            id="fnameregis">
+                        <input name="segundoNombre" type="text" class="login-email"
+                            placeholder="Digite su segundo nombre, opcional" id="mnameregis">
+                        <input name="primerApellido" type="text" class="login-email"
+                            placeholder="Digite su primer apellido" id="ape1regis">
+                        <input name="segundoApellido" type="text" class="login-email"
+                            placeholder="Digite su segundo apellido" id="ape2regis">
+                        <input name="telefono" type="number" class="login-email" placeholder="Digite su teléfono"
+                            id="tel">
+                        <button id="btnRegistrar" class="ini-registrate" type="submit">Regístrarse</button>
+                    </form>
+                </div>
+
+                <div class="rayitah"></div>
+            </div>
+        </div>
+    </div>
 
     <section>
         <div class="container">
@@ -105,7 +138,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                 <h4 id="precio"></h4>
                             </div>
                             <div class="card-footer d-flex m-0">
-                                <a href="#" class="btn btn-success">Agregar al carrito</a> 
+                                <a href="#" class="btn btn-success">Agregar al carrito</a>
                                 <select class="form-select" aria-label="Default select example" id="nItems">
                                     <option selected id="max"></option>
                                 </select>
@@ -119,15 +152,6 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                 <div class="col-12">
                     <h2>Comentarios</h2>
                 </div>
-                <div class="col-12" class="comentar">
-                    <h4 class="col-12">Hacer un comentario</h4>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="txtComent"></textarea>
-                        <label for="floatingTextarea">Comentar</label>
-                        <a href="#" class="btn btn-success mt-3" id="hacerComentario">Hacer comentario</a>
-                    </div>
-                </div>
-
                 <div class="col-12 mt-4" id="comentarios">
                 </div>
             </div>

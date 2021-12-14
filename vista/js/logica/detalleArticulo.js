@@ -1,12 +1,13 @@
-
 var url_string = window.location.href;
 var url = new URL(url_string);
 var idArticulo = url.searchParams.get("id");
 
 $(document).ready(function () {
     verArticulo(idArticulo);
+    mostrarComentarios(idArticulo);
 
     $("#hacerComentario").click(function (e) { 
+        e.preventDefault();
         if($("#txtComent").val().length < 3) {
             Swal.fire({
                 title: "Campo vacio.",
@@ -48,16 +49,41 @@ function agregarEnVista(response) {
 }
 
 function enviarComentario(idArticulo, comentario){
-    console.log("entre");
     $.ajax({
         type: "post",
         url: "../controlador/accion/ajax_registrarComentario.php",
         data:{"idArticulo": idArticulo ,"comentario": comentario},
         dataType: "json",
         success: function (response) {
-            console.log("toy dentro ajax");
-            alert(response.estado + response.msg);
+
+            mostrarComentarios(idArticulo);
         }
     });
+}
+
+function mostrarComentarios(idArticulo){
+    console.log("entre");
+    $.ajax({
+        type: "post",
+        url: "../controlador/accion/ajax_verComentariosXart.php",
+        data:{"idArticulo": idArticulo},
+        dataType: "json",
+        success: function (response) {
+            $("#comentarios").empty();
+            insertarComentarios(response);
+        }
+    });
+}
+
+function insertarComentarios(response) {
+    let comentarios = '';
+
+    $.each(response, function(i) {
+        console.log(response[i].idUsuario);
+        comentarios ='<div class="col-12 mt-4 mb-4 coment"><h5 class="col-12">User_'+response[i].idusuario+'</h5><div class="col-12 mt-2">'+response[i].comentario+'</div></div>';
+        $("#comentarios").append(comentarios);
+        comentarios ='';
+    })
+
 }
 

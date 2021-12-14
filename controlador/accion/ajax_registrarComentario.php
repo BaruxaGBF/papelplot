@@ -22,7 +22,5 @@ $resultado = [
 
 echo json_encode($resultado);
 
-echo "hola ";
-echo $idArticulo;
-echo $comentario;
+
 

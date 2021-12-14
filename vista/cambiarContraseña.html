@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="CSS/olvidarContraseña.css">
+    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+
+    <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/librerias/jquery-3.6.0.min.js"></script>
+    <script src="js/logica/cambiarContraseña.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Papelplot</title>
+</head>
+
+<body>
+    <div id="pop-up-olvidar">
+        <div id="iniciandoJuego">
+            <div class="card text-dark bg-light mb-3">
+                <div class="card-header"> <a href="../index.html" class="logo"><img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot"></a></div>
+                <div class="card-body">
+                    <div class="row">
+                        <form class="row g-3" id="form-cambiar" method="post" action="">
+                            <h5 class="card-title text-center mt-2 mb-2"> <i class="fab fa-expeditedssl tam"></i> <br>Cambie su contraseña</h5>
+                            <p class="card-text mt-3">A continuación ingrese su nueva contraseña.</p>
+                            <div class="col-md-6">
+                                <label for="inputPassword" class="form-label">Nueva contraseña</label>
+                                <input name="password" type="password" class="form-control" id="inputPassword">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword2" class="form-label">Confirmar contraseña</label>
+                                <input type="password" class="form-control" id="inputPassword2">
+                            </div>
+        
+                            <div class="col-12">
+                                <button id="btn-cambiarContraseña" type="button" class="btn btn-success">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
