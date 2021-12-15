@@ -100,4 +100,17 @@ class CarritoDao{
       return $articulos;
     }
 
+    public function eliminarDelCarrito($idUsuario, $idArticulo){
+        $data_source = new DataSource();
+        
+        $stmt1 = "DELETE FROM carritos WHERE idUsuario = :idUsuario AND idArticulo = :idArticulo"; 
+        
+        $resultado = $data_source->ejecutarActualizacion($stmt1, array(
+            ':idArticulo' => $idArticulo,
+            ':idUsuario' => $idUsuario
+            )
+        ); 
+
+      return $resultado;
+    }
 }

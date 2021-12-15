@@ -1,3 +1,12 @@
 .precio{
     font-size: 25px;
 }
+
+form{
+    display: inline-block;
+}
+
+#tiraCarrito{
+    max-height: 1100px;
+    overflow-y: auto;
+}

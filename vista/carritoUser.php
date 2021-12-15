@@ -82,7 +82,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
         <div class="container">
             <div class="row mt-5" id="artCarrito">
                 <h1 class="mt-2"> Mi carrito</h1>
-                <div class="row row-cols-1 row-cols-md-4 g-4" id="tiraCarrito">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-4 g-4" id="tiraCarrito">
                 </div>
             </div>
 
