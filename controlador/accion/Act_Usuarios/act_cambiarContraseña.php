@@ -11,7 +11,7 @@ $estado = cambiarContraseña($idUsuario, $password);
 
 if ($estado == 0) {
     $msg = "Actualización con exíto.";
-    header("Location: ../../../vista/index.html");
+    header("Location: ../../../index.html");
 } else {
     $msg = "Algo Fallo.";
 }
