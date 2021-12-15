@@ -47,3 +47,8 @@ function editarArticulo($Articulo){
     $dao=new ArticuloDAO();
     return $dao->editarArticulo($Articulo);
 }
+
+function buscarArticulo($cadena){
+    $dao=new ArticuloDAO();
+    return $dao->buscarArticulo($cadena);
+}

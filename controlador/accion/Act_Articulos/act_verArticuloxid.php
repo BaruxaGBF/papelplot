@@ -7,7 +7,5 @@
     
     $articulo = verArticuloPorId($idArticulo);
     
-   
-    
     
     echo json_encode($articulo);  
