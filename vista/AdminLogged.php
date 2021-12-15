@@ -184,10 +184,21 @@ if (!isset($_SESSION['ID_USUARIO'])) {
               <div class="col-md-8"><input id="aNombre" placeholder="Nombre" type="text" class="form-control"
                   name="nombre"></div>
             </div>
-            <div style="padding:7px 0;" class="justify-content-center row">
+
+            <div id='EleccionI'style="padding:7px 0;" class="justify-content-center row">
+              <div class="sexo col-md-8">
+                <input type="hidden" name="imagenI" value="">
+                <select onchange="ELI()" id="EImagen" class="form-control" name="Categoria">
+                    <option selected>Dejar imagen actual</option>
+                    <option >Cambiar imagen</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="Iimagen" style="padding:7px 0;" class="justify-content-center row">
               <div class="mb-3 col-md-8">
                <label for="formFile" class="form-label">Imagen</label>
-                 <input class="form-control" type="file" id="formFile" name=''>
+                 <input class="form-control" type="file" id="formFile" name='imagen' accept="image/jpeg">
               </div>
             </div>
             <div style="padding:7px 0;" class="justify-content-center row">
@@ -196,7 +207,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
             </div>
             <div style="padding:7px 0;" class="justify-content-center row">
               <div class="sexo col-md-8">
-                <input type="hidden" name="idCategoria" value="">
+                <input type="hidden" name="idCategoria" value="1">
                 <select onchange="CambiarCategoria()" id="Categoria" class="form-control" name="Categoria">
 
                 </select>

@@ -37,7 +37,8 @@ $(document).ready(function () {
     })
 
     $('#Agregar').click(function (e){
-        VaciatModal()
+        $('#EleccionI').hide();
+        VaciatModal();
     })
 
 
@@ -89,6 +90,7 @@ function insertarArticulosEnTabla(result) {
     $("#tablaC thead tr").append(
         "<th scope=" + "col" + " style=" + "text-align:center;" + ">#</th> " +
         "<th scope=" + "col" + " style=" + "text-align:center;" + ">Nombre</th>" +
+        "<th scope=" + "col" + " style=" + "text-align:center;" + ">Imagen</th>" +
         "<th scope=" + "col" + " style=" + "text-align:center;" + ">Precio</th>" +
         "<th scope=" + "col" + " style=" + "text-align:center;" + ">Categorias</th>" +
         "<th scope=" + "col" + " style=" + "text-align:center;" + ">Descripcion</th>" +
@@ -102,6 +104,7 @@ function insertarArticulosEnTabla(result) {
         Inser += '<tr>' +
             '<th scope="row" style="text-align:center;" >' + result[i].idArticulo + '</th>' +
             '<td scope="row" style="text-align:center;">' + result[i].nombre + '</td>' +
+            '<td scope="row" style="text-align:center;">' + result[i].imagen + '</td>' +
             '<td scope="row" style="text-align:center;">' + result[i].precio + '</td>' +
             '<td scope="row" style="text-align:center;">' + Nombre + '</td>' +
             '<td scope="row" style="text-align:center;">' + result[i].descripcion + '</td>' +
@@ -116,7 +119,9 @@ function insertarArticulosEnTabla(result) {
     //insertarDatosUsuarioEnModal()
 
 }
+var imag=''
 function editarArticulo(id) {
+    $('#EleccionI').show();
     $('#formularioArticulo')[0].action='../controlador/accion/Act_Articulos/act_editarArticulo.php'
     $.ajax({
         type: "POST",
@@ -128,8 +133,9 @@ function editarArticulo(id) {
             $("#EditarArticulo input[name='nombre']").val(Articulo.nombre);
             $("#EditarArticulo input[name='precio']").val(Articulo.precio);
             $("#EditarArticulo input[name='descripcion']").val(Articulo.descripcion);
-            console.log(Articulo);
-            //$("#EditarArticulo input[name='imagen']").val(Articulo.imagen);
+            $("#EditarArticulo input[name='imagenI']").val(Articulo.imagen);
+            $('#Iimagen').hide();
+            imag=Articulo.imagen;
             $("#EditarArticulo input[name='existencia']").val(Articulo.existencia);
             $("#EditarArticulo input[name='idCategoria']").val(Articulo.idCategoria);
             let options = $("#Categoria option");
@@ -145,6 +151,17 @@ function editarArticulo(id) {
 }
 function CambiarCategoria(){
     $("#EditarArticulo input[name='idCategoria']").val($("#Categoria").val());
+}
+function ELI(){
+    console.log($('#EImagen option:selected').val())
+   if($('#EImagen option:selected').val()=='Cambiar imagen'){
+        $("#EditarArticulo input[name='imagenI']").val("null");
+        $('#Iimagen').show();
+   }else{
+        $("#EditarArticulo input[name='imagenI']").val(imag);
+        $('#Iimagen').hide();
+   }
+ 
 }
 
 
