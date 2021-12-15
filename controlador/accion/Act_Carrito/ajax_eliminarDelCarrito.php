@@ -16,4 +16,5 @@ $resultado = [
     'msg' => $msg
 ];
 
+header("Location: ../../../vista/carritoUser.php");
 echo json_encode($resultado);
