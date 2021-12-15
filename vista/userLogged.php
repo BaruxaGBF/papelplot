@@ -62,6 +62,9 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                     </h4>
                                 </li>
                                 <li><a href="micuenta.php"> Mi cuenta</a></li>
+                                <?php if (isset($_SESSION['ID_USUARIO']) && ($_SESSION['ADMIN'] == 1))
+                                        echo '<li><a href="AdminLogged.php"> Administrar</a></li>';
+                                ?>
                                 <li><a href="#"> Compras</a></li>
                                 <li id="logout"><a href="../controlador/accion/act_logout.php"> Salir</a></li>
                             </ul>

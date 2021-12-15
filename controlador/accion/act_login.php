@@ -18,6 +18,7 @@ if ($user != null) {
     //Si el usuario fue encontrado, se guarda su ID en una sesión con $_SESSION
     $_SESSION['ID_USUARIO'] = $user->getidUsuario();
     $_SESSION['NOMBRE_USUARIO'] = $user->getprimerNombre();
+    $_SESSION['ADMIN'] = $user->getesAdmin();
 
     if ($user->getesAdmin() == 1) {
         header("Location: ../../vista/AdminLogged.php");
