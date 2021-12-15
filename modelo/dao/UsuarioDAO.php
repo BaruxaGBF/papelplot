@@ -152,4 +152,32 @@ class UsuarioDAO
 
         return $resultado;
     }
+
+    public function autenticarCorreo($correo)
+    {
+        $data_source = new DataSource();
+
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM usuarios WHERE correo =:correo", array(':correo' => $correo));
+        
+        $usuario = null;
+        if (count($data_table) == 1) {
+
+
+            foreach ($data_table as $indice => $valor) {
+                $usuario = new Usuario(
+                    $data_table[$indice]["idUsuario"],
+                    $data_table[$indice]["primerNombre"],
+                    $data_table[$indice]["segundoNombre"],
+                    $data_table[$indice]["primerApellido"],
+                    $data_table[$indice]["segundoApellido"],
+                    $data_table[$indice]["correo"],
+                    $data_table[$indice]["password"],
+                    $data_table[$indice]["esAdmin"],
+                    $data_table[$indice]["telefono"]
+                );
+            }
+        }
+
+        return $usuario;
+    }
 }
