@@ -36,6 +36,9 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
   <script src="js/librerias/jquery-3.6.0.min.js"></script>
   <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="js/logica/AdminLogged.js"></script>
 
   <title>AdminLogged</title>

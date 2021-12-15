@@ -1,11 +1,11 @@
 var url_string = window.location.href;
 var url = new URL(url_string);
 var idArticulo = url.searchParams.get("id");
+var max = 0;
 
 $(document).ready(function () {
     verArticulo(idArticulo);
     mostrarComentarios(idArticulo);
-
     $("#hacerComentario").click(function (e) { 
         e.preventDefault();
         if($("#txtComent").val().length < 3) {
@@ -21,11 +21,45 @@ $(document).ready(function () {
     });
 
     $("#addCarrito").click(function (e) { 
-        alert("presionaste carrtio" + $("#nItems option:selected").val());
-        e.preventDefault(); 
+        if($("#nItems option:selected").val() != "Seleccione una cantidad Max: "+max){
+            agregarAlCarrito(idArticulo,parseInt($("#nItems option:selected").val(), 10));
+        }else{
+            Swal.fire({
+                title: "Por favor ingrese una cantidad.",
+                text: 'Ingrese una cantidad en el botón al costado de "Agregar al carrito".',
+                icon: 'warning'
+            })
+        }
     });
 
 });
+
+function agregarAlCarrito(idArticulo,cantidad) {
+    console.log(idArticulo+"-"+cantidad);
+    $.ajax({
+        type: "POST",
+        url: "../controlador/accion/Act_Carrito/act_registrarCarrito.php",
+        data:{"idArticulo": idArticulo, "cantidad": cantidad},
+        dataType: "json",
+        success: function (response) {
+            Swal.fire({
+                title: 'Has agregado al carrito con exíto.',
+                text: "¿Quiere revisarlo ahora?",
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, seguir viendo articulos',
+                confirmButtonText: 'Si! llevame ahí.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(location).attr('href','carritoUser.php');
+                    console.log("Esta vaina no lo manda")
+                }
+            })
+        }
+    });
+}
 
 function verArticulo(idArticulo){
     $.ajax({
@@ -40,7 +74,7 @@ function verArticulo(idArticulo){
 }
 
 function agregarEnVista(response) {
-    let max = parseInt(response.existencia,10);
+    max = parseInt(response.existencia,10);
 
     for(let i = 1; i <= max; i++) {
         $("#nItems").append('<option value="'+i+'">'+i+'</option>');
@@ -60,7 +94,6 @@ function enviarComentario(idArticulo, comentario){
         data:{"idArticulo": idArticulo ,"comentario": comentario},
         dataType: "json",
         success: function (response) {
-
             mostrarComentarios(idArticulo);
         }
     });

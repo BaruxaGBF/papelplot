@@ -10,12 +10,12 @@
         $cantidad = filter_input(INPUT_POST,'cantidad');
         
         $carrito = new Carrito($idUsuario, $idArticulo, $cantidad);
-        $estado  = registrarCarrito($carrito);
+        $estado  = buscarCarrito($carrito);
         $msg="Se logró registrar el articulo";
        
     $resultado = [
         'estado' => $estado,
         'msg' => $msg
     ];
-    
+        
     echo json_encode($resultado);

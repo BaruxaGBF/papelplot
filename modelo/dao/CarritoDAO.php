@@ -2,12 +2,13 @@
 
 require_once ("DataSource.php");  
 require_once (__DIR__."/../entidad/Carrito.php");
+require_once (__DIR__."/../entidad/Articulo.php");
 class CarritoDao{
     public function registrarCarrito(Carrito $carrito){
         $data_source = new DataSource();
         $stmt1 = "INSERT INTO carritos VALUES (:idUsuario,:idArticulo,:cantidad)"; 
         
-        $resultado = $data_source->ejecutarActualizacion($stmt1, array(
+        $resultado = $data_source->ejecutarConsulta($stmt1, array(
             ':idUsuario' => $carrito->getidUsuario(),
             ':idArticulo' => $carrito->getidArticulo(),
             ':cantidad' => $carrito->getcantidad(),
@@ -27,7 +28,7 @@ class CarritoDao{
         if(count($data_table)==1){
             $data_source = new DataSource();
             $data_table= $data_source->ejecutarActualizacion("UPDATE carritos SET cantidad = :cantidad WHERE idUsuario = :idUsuario AND idArticulo = :idArticulos",
-                array(':cantidad'=> $data_table[0]["cantidad"]+$carrito->getcantidad(),':idUsuario'=>$carrito->getidUsuario(),':idArticulos'=>$carrito->getidArticulo())
+                array(':cantidad'=> $data_table[0]["cantidad"]+1,':idUsuario'=>$carrito->getidUsuario(),':idArticulos'=>$carrito->getidArticulo())
             );
         }else{
 
@@ -35,6 +36,44 @@ class CarritoDao{
             
         }
 
+    }
+
+    public function insertarCarrito(Carrito $carrito){
+        $data_source = new DataSource();
+        
+        $stmt1 = "INSERT INTO carritos VALUES (:idUsuario,:idArticulo,:cantidad)"; 
+        
+        $resultado = $data_source->ejecutarActualizacion($stmt1, array(
+            ':idUsuario' => $carrito->getidUsuario(),
+            ':idArticulo' => $carrito->getidArticulo(),
+            ':cantidad' => $carrito->getcantidad()
+        )
+        );
+      return $resultado;
+    }
+
+    public function actualizarCarrito(Carrito $carrito, $data_table){
+        $data_source = new DataSource();
+        $datatable= $data_source->ejecutarActualizacion("UPDATE carritos SET cantidad = :cantidad WHERE idUsuario = :idUsuario AND idArticulo = :idArticulos",
+            array(':cantidad'=> $data_table[0]["cantidad"]+1,':idUsuario'=>$carrito->getidUsuario(),':idArticulos'=>$carrito->getidArticulo())
+        );
+
+        return $datatable;
+    }
+
+    public function buscarCarrito(Carrito $carrito){
+        $data_source = new DataSource();
+        
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM carritos WHERE idUsuario = :idUsuario AND idArticulo = :idArticulo", array(':idUsuario' => $carrito->getidUsuario(),':idArticulo'=>$carrito->getidArticulo()));
+
+        if(count($data_table)==1){
+            $data_source = new DataSource();
+            $datatable= $data_source->ejecutarActualizacion("UPDATE carritos SET cantidad = :cantidad WHERE idUsuario = :idUsuario AND idArticulo = :idArticulos",
+                array(':cantidad'=> $data_table[0]["cantidad"]+$carrito->getcantidad(),':idUsuario'=>$carrito->getidUsuario(),':idArticulos'=>$carrito->getidArticulo())
+            );
+        }else{
+            insertarCarrito($carrito);
+        }
     }
 
     public function verCarritoporidUsuario($idUsuario){
@@ -60,6 +99,5 @@ class CarritoDao{
         
       return $articulos;
     }
-
 
 }

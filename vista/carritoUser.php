@@ -22,6 +22,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/logica/carrito.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -69,7 +70,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                         </div>
                     </div>
                     <span>|</span>
-                    <a href=""><i class="iconNav fas fa-shopping-cart"></i></a>
+                    <a href="carritoUser.php"><i class="iconNav fas fa-shopping-cart"></i></a>
                     <span>|</span>
                     <a href="https://wa.me/573135493346" target="_blank"><i class="iconNav fab fa-whatsapp"></i></a>
                 </div>
@@ -81,69 +82,17 @@ if (!isset($_SESSION['ID_USUARIO'])) {
         <div class="container">
             <div class="row mt-5" id="artCarrito">
                 <h1 class="mt-2"> Mi carrito</h1>
-                <div class="row row-cols-1 row-cols-md-4 ">
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Detalles</a>
-                                <span>Cantidad:</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a short card.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Detalles</a>
-                                <span>Cantidad:</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Detalles</a>
-                                <span>Cantidad:</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Detalles</a>
-                                <span>Cantidad:</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-md-4 g-4" id="tiraCarrito">
                 </div>
             </div>
 
             <div class="row mt-4">
                 <div class="col-12 mb-2">
-                    <span class="precio">Precio Total: &nbsp</span><span class="precio" >$785458</span>
+                    <span class="precio">Precio Total: &nbsp</span><span class="precio" id="pTotal"></span>
                 </div>
                 <div>
                     <div class="col-12">
-                    <button type="button" class="btn btn-success btn-lg">Continuar compra</button>
+                        <button type="button" class="btn btn-success btn-lg">Continuar compra</button>
                     </div>
                 </div>
             </div>

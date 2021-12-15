@@ -10,3 +10,23 @@ function registrarCarrito(Carrito $carrito){
 
     return $carrito;
 }
+
+function verCarritoporidUsuario($idUsuario){
+    $dao=new CarritoDAO();
+    $articulo = $dao->verCarritoporidUsuario($idUsuario);
+    return $articulo;
+}
+
+function insertarCarrito(Carrito $carrito){
+
+    $dao=new CarritoDAO();
+    $carrito = $dao->insertarCarrito($carrito);
+    return $carrito;
+}
+
+function buscarCarrito(Carrito $carrito){
+
+    $dao=new CarritoDAO();
+    $carrito = $dao->buscarCarrito($carrito);
+    return $carrito;
+}

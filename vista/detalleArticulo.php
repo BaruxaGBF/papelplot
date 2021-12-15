@@ -72,7 +72,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
                     <span>|</span>
 
-                    <a href="carritoUser.php">
+                    <a href="carritoUser.php" id="irCarrito">
                         <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
                         <i class="iconNav fas fa-shopping-cart"></i>
                     </a>
@@ -105,10 +105,15 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                 <h4 id="precio"></h4>
                             </div>
                             <div class="card-footer d-flex m-0">
-                                <a href="#" class="btn btn-success">Agregar al carrito</a> 
+                                <a href="#" class="btn btn-success" id="addCarrito">Agregar al carrito</a> 
                                 <select class="form-select" aria-label="Default select example" id="nItems">
                                     <option selected id="max"></option>
                                 </select>
+                                <!-- <form action="../controlador/accion/Act_Carrito/act_registrarCarrito.php" method="post">
+                                    <input name="idArticulo" type="text" placeholder="idArticulos">
+                                    <input name="cantidad" type="number" placeholder="cantidad">
+                                    <button type="submit">Enviar</button>
+                                </form> -->
                             </div>
                         </div>
                     </div>
