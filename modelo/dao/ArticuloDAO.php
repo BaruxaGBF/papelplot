@@ -8,10 +8,11 @@ class ArticuloDAO{
     public function registrarArticulo(Articulo $articulo){
         $data_source = new DataSource();
         
-        $stmt1 = "INSERT INTO articulos VALUES (NULL,:nombre,:precio,:descripcion,:imagen,:existencia)"; 
+        $stmt1 = "INSERT INTO articulos VALUES (NULL,:nombre,:precio,:descripcion,:imagen,:existencia,:idCategoria)"; 
         
         $resultado = $data_source->ejecutarActualizacion($stmt1, array(
             ':nombre' => $articulo->getnombre(),
+            ':idCategoria' => $articulo->getIdCategoria(),
             ':precio' => $articulo->getprecio(),
             ':descripcion' => $articulo->getdescripcion(),
             ':imagen' => $articulo->getimagen(),
@@ -32,6 +33,7 @@ class ArticuloDAO{
         foreach($data_table as $indice => $valor){
             $articulo = new Articulo(
                 $data_table[$indice]["idArticulo"],
+                $data_table[$indice]["idCategoria"],
                 $data_table[$indice]["nombre"],
                 $data_table[$indice]["precio"],
                 $data_table[$indice]["descripcion"],
@@ -54,6 +56,7 @@ class ArticuloDAO{
         if(count($data_table)==1){
             $articulo = new Articulo(
                 $data_table[0]["idArticulo"],
+                $data_table[0]["idCategoria"],
                 $data_table[0]["nombre"],
                 $data_table[0]["precio"],
                 $data_table[0]["descripcion"],
@@ -89,6 +92,7 @@ class ArticuloDAO{
         foreach($data_table as $indice => $valor){
             $articulo = new Articulo(
                 $data_table[$indice]["idArticulo"],
+                $data_table[$indice]["idCategoria"],
                 $data_table[$indice]["nombre"],
                 $data_table[$indice]["precio"],
                 $data_table[$indice]["descripcion"],
@@ -112,6 +116,7 @@ class ArticuloDAO{
         foreach($data_table as $indice => $valor){
             $articulo = new Articulo(
                 $data_table[$indice]["idArticulo"],
+                $data_table[$indice]["idCategoria"],
                 $data_table[$indice]["nombre"],
                 $data_table[$indice]["precio"],
                 $data_table[$indice]["descripcion"],
@@ -122,6 +127,28 @@ class ArticuloDAO{
         }
         
       return $articulos;
+    }
+
+    public function editarArticulo($Articulo)
+    {
+        $data_source = new DataSource();
+
+        $stmt1 = "UPDATE articulos SET nombre=:nombre, idCategoria=:idCategoria,  precio= :precio, descripcion=:descripcion, imagen=:imagen, existencia=:existencia  WHERE idArticulo = :idArticulo";
+
+        $resultado = $data_source->ejecutarActualizacion(
+            $stmt1,
+            array(
+                ':idArticulo' => $Articulo->getIdArticulo(),
+                'idCategoria'=> $Articulo->getIdCAtegoria(),
+                ':nombre' => $Articulo->getNombre(),
+                ':precio' => $Articulo->getPrecio(),
+                ':descripcion' => $Articulo->getDescripcion(),
+                ':imagen' => $Articulo->getImagen(),
+                ':existencia' => $Articulo->getExistencia()
+            )
+        );
+
+        return $resultado;
     }
 
 }

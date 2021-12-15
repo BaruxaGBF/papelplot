@@ -16,7 +16,7 @@ $telefono = $_POST['telefono'];
 
 $usuario = new Usuario($idUsuario, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $correo, $password, 0, $telefono);
 
-$estado  = editarUsuario($usuario);
+$estado  = editarUsuariox($usuario);
 
 if ($estado != 0) {
     $msg = "Actualización con exíto.";

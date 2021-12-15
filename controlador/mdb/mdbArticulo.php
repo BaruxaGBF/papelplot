@@ -43,3 +43,7 @@ function articulosBaratos(){
     return $articulo;
 }
 
+function editarArticulo($Articulo){
+    $dao=new ArticuloDAO();
+    return $dao->editarArticulo($Articulo);
+}

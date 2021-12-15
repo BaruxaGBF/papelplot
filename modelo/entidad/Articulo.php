@@ -3,15 +3,17 @@
 class Articulo
 {
     public $idArticulo;
+    public $idCategoria;
     public $nombre;
     public $precio;
     public $descripcion;
     public $imagen;
     public $existencia;
 
-    public function __construct($idArticulo,$nombre,$precio,$descripcion,$imagen,$existencia){
+    public function __construct($idArticulo,$idCategoria,$nombre,$precio,$descripcion,$imagen,$existencia){
         
         $this->idArticulo=$idArticulo;
+        $this->idCategoria=$idCategoria;
         $this->nombre=$nombre;
         $this->precio=$precio;
         $this->descripcion=$descripcion;
@@ -22,6 +24,10 @@ class Articulo
 
     public function getIdArticulo(){
         return $this->idArticulo;
+    }
+
+    public function getIdCategoria(){
+        return $this->idCategoria;
     }
 
     public function getNombre(){
@@ -46,6 +52,10 @@ class Articulo
 
     public function setIdArticulo($id){
         $this->idArticulo=$id;
+        return $this;
+    }
+    public function setIdCategoria($id){
+        $this->idCategoria=$id;
         return $this;
     }
     public function setNombre($nombre){

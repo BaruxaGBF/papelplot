@@ -56,8 +56,13 @@ function verUsuarioPorId($idUsuario)
     return $usuario;
 }
 
-function editarUsuario($usuario)
+function editarUsuariox($usuario)
 {
     $dao = new UsuarioDAO();
     $dao->editarUsuario($usuario);
+}
+
+function editarUsuario($usuario){
+    $dao=new UsuarioDAO();
+    return $dao->editarUsuario($usuario);
 }

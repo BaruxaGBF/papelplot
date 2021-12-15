@@ -1,6 +1,11 @@
 .grid{
     display: grid;
     grid-template-columns: 100%;
+   
+}
+
+.icono{
+    font-size: 50000px;
 }
 
 @media screen and (max-width: 760px) {

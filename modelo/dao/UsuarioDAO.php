@@ -85,8 +85,6 @@ class UsuarioDAO
         return $usuarios;
     }
 
-
-
     public function eliminarUsuario($idUsuario)
     {
         $data_source = new DataSource();
@@ -138,6 +136,7 @@ class UsuarioDAO
         $resultado = $data_source->ejecutarActualizacion(
             $stmt1,
             array(
+                ':idUsuario' => $usuario->getidUsuario(),
                 ':primerNombre' => $usuario->getprimerNombre(),
                 ':segundoNombre' => $usuario->getsegundoNombre(),
                 ':primerApellido' => $usuario->getprimerApellido(),
@@ -145,8 +144,8 @@ class UsuarioDAO
                 ':correo' => $usuario->getcorreo(),
                 ':password' => $usuario->getpassword(),
                 ':esAdmin' => $usuario->getesAdmin(),
-                ':telefono' => $usuario->gettelefono(),
-                ':idUsuario' => $usuario->getidUsuario()
+                ':telefono' => $usuario->gettelefono()
+                
             )
         );
 
