@@ -31,13 +31,9 @@ if ($user != null) {
     $mail->addAddress($correo);
     $mail->isHTML(true);
     $mail->Subject = 'Olvidaste tu contraseña';
-    $mail->Body = 'Su contraseña era:'.$user->getpassword();
-    $enlace = $user->getidUsuario();
-    //$mail->msgHTML(file_get_contents('../../../vista/recuperarPass.php'), __DIR__);
+    $mail->Body = "<h1>Cambiar Contraseña</h1>"."<a href='localhost/papelplot/vista/cambiarContraseña.html?id=".$user->getidUsuario()."'>Cambia tu contraseña aquí.</a>";
+    
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        $_SESSION['Correo_User'] = $correo;
-        echo json_encode($user);
     }
 }

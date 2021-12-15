@@ -66,3 +66,8 @@ function editarUsuario($usuario){
     $dao=new UsuarioDAO();
     return $dao->editarUsuario($usuario);
 }
+
+function cambiarContraseña($idUsuario, $password){
+    $dao=new UsuarioDAO();
+    $dao->cambiarContraseña($idUsuario, $password);
+}

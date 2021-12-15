@@ -179,4 +179,15 @@ class UsuarioDAO
 
         return $usuario;
     }
+
+    public function cambiarContraseña($idUsuario, $password)
+    {
+        $data_source = new DataSource();
+
+        $stmt1 = "UPDATE usuarios SET password = :password WHERE idUsuario = :idUsuario";
+
+        $resultado = $data_source->ejecutarActualizacion($stmt1,array(':idUsuario' => $idUsuario, ':password' => $password));
+
+        return $resultado;
+    }
 }

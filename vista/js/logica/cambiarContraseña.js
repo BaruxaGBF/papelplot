@@ -1,3 +1,7 @@
+var url_string = window.location.href;
+var url = new URL(url_string);
+var idUsuario = url.searchParams.get("id");
+
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,45}$/, // Letras y espacios, pueden llevar acentos.
     segundoNombre: /^[a-zA-ZÀ-ÿ\s]{0,45}$/,
@@ -7,8 +11,10 @@ const expresiones = {
 }
 
 $(document).ready(function () {
-    $("#btn-cambiarContraseña").click(function (e) { 
 
+    $("#idUsuario").val(idUsuario)
+
+    $("#btn-cambiarContraseña").click(function (e) { 
         if($("#inputPassword").val() == ""){
             Swal.fire({
                 title: "Campo de contraseña vacio.",

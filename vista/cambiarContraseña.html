@@ -39,10 +39,11 @@
                 <div class="card-header"> <a href="../index.html" class="logo"><img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot"></a></div>
                 <div class="card-body">
                     <div class="row">
-                        <form class="row g-3" id="form-cambiar" method="post" action="">
+                        <form class="row g-3" id="form-cambiar" method="post" action="../controlador/accion/Act_Usuarios/act_cambiarContraseña.php">
                             <h5 class="card-title text-center mt-2 mb-2"> <i class="fab fa-expeditedssl tam"></i> <br>Cambie su contraseña</h5>
                             <p class="card-text mt-3">A continuación ingrese su nueva contraseña.</p>
                             <div class="col-md-6">
+                                <input name="idUsuario" id="idUsuario" type="hidden" value="">
                                 <label for="inputPassword" class="form-label">Nueva contraseña</label>
                                 <input name="password" type="password" class="form-control" id="inputPassword">
                             </div>
@@ -52,7 +53,7 @@
                             </div>
         
                             <div class="col-12">
-                                <button id="btn-cambiarContraseña" type="button" class="btn btn-success">Guardar cambios</button>
+                                <button id="btn-cambiarContraseña" type="submit" class="btn btn-success">Guardar cambios</button>
                             </div>
                         </form>
                     </div>
