@@ -22,7 +22,13 @@ echo editarUsuario($usuario);
 
 if ($estado == 0) {
     $msg = "Actualización con exíto.";
-    header("Location: ../../../vista/AdminLogged.php");
+    //header("Location: ../../../vista/AdminLogged.php");
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="../../../vista/AdminLogged.php";';
+    echo '</script>';
+    echo '<noscript>';
+    echo '<meta http-equiv="refresh" content="0;url=../../../vista/AdminLogged.php" />';
+    echo '</noscript>'; exit;
 } else {
     $msg = "Algo Fallo.";
 }

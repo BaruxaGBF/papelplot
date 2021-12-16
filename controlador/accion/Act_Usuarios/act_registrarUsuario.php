@@ -22,5 +22,12 @@ $resultado = [
     'msg' => $msg
 ];
 
+echo '<script type="text/javascript">';
+echo 'window.location.href="../../../vista/AdminLogged.php";';
+echo '</script>';
+echo '<noscript>';
+echo '<meta http-equiv="refresh" content="0;url=../../../vista/AdminLogged.php" />';
+echo '</noscript>'; exit;
+
 echo json_encode($resultado);
 

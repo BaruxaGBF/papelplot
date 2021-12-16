@@ -11,6 +11,7 @@ $(document).ready(function () {
         if (TipoP != 0) {
             ajaxVerArticulos();
             $('#Agregar').attr('data-target','#EditarArticulo');
+            $('#Agregar').html("Agregar Nuevo Articulo")
             TipoP = 0;
         }
 
@@ -20,6 +21,7 @@ $(document).ready(function () {
         if (TipoP != 1) {
             ajaxVerCategorias();
             $('#Agregar').attr('data-target','#EditarCategoria');
+            $('#Agregar').html("Agregar Nuevo Categoría")
             TipoP = 1;
         }
     });
@@ -28,6 +30,7 @@ $(document).ready(function () {
         if (TipoP != 2) {
             ajaxVerUsuarios();
             $('#Agregar').attr('data-target','#EditarUsuario');
+            $('#Agregar').html("Agregar Nuevo Usuario")
             TipoP = 2;
         }
     });

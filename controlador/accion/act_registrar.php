@@ -32,8 +32,20 @@ if ($estado != 0) {
     $_SESSION['ADMIN'] = $user->getesAdmin();
 
     if ($user->getesAdmin() == 1) {
-        header("Location: ../../vista/administradorUsuarios.php");
+        //header("Location: ../../vista/administradorUsuarios.php");
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="../../../vista/AdminLogged.php";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url=../../../vista/AdminLogged.php" />';
+        echo '</noscript>'; exit;
     } else {
-        header("Location: ../../vista/userLogged.php");
+        //header("Location: ../../vista/userLogged.php");
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="../../vista/userLogged.php";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url=../../vista/userLogged.php" />';
+        echo '</noscript>'; exit;
     }
 }

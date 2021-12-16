@@ -28,7 +28,13 @@ $estado  = editarArticulo($articulo);
 if ($estado == 0) {
     $msg = "Actualización con exíto.";
     move_uploaded_file($guardar,'../../../vista/img/'.$imagen);
-    header("Location: ../../../vista/AdminLogged.php");
+    echo '<script type="text/javascript">';
+    echo 'window.location.href="../../../vista/AdminLogged.php";';
+    echo '</script>';
+    echo '<noscript>';
+    echo '<meta http-equiv="refresh" content="0;url=../../../vista/AdminLogged.php" />';
+    echo '</noscript>'; exit;
+    //header("Location: ../../../vista/AdminLogged.php");
 } else {
     $msg = "Algo Fallo.";
 }
