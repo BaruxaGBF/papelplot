@@ -38,6 +38,10 @@ $(document).ready(function () {
 
     $('#Agregar').click(function (e){
         $('#Iimagen').show();
+        $('#EleccionI').hide();
+        $('#agreC').html('Agregar Categoria');
+        $('#AgreA').html('Agregar Articulo');
+        $('#AgreU').html('Agregar Usuraio');
         VaciatModal();
     })
 
@@ -65,7 +69,6 @@ function VaciatModal(){
         }
     }
 }
-
 // Cargar Articulos
 function ajaxVerArticulos() {
     CargarCAtegorias();
@@ -121,6 +124,7 @@ function insertarArticulosEnTabla(result) {
 }
 var imag=''
 function editarArticulo(id) {
+    $('#AgreA').html('Editar Articulo');
     $('#EleccionI').show();
     $('#formularioArticulo')[0].action='../controlador/accion/Act_Articulos/act_editarArticulo.php'
     $.ajax({
@@ -205,6 +209,7 @@ function insertarCategoriasEnTabla(result) {
 
 }
 function editarCategoria(id) {
+    $('#agreC').html('Editar Categoria');
     $('#formularioArticulo')[0].action='../controlador/accion/Act_Categorias/act_editarcategoria.php';
     console.log(id);    CargarCAtegorias();
     $.ajax({
@@ -306,6 +311,7 @@ function insertarUsuariosEnTabla(result) {
 
 }
 function editarUsuario(id){
+    $('#AgreU').html('Editar Usuario');
     $('#formularioUsuario')[0].action='../controlador/accion/Act_Usuarios/editarUsuario.php'
     $.ajax({
         type: "POST",

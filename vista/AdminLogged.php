@@ -144,7 +144,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Editar Categorias</h5>
+          <h5 class="modal-title" id="agreC">Editar Categorias</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -168,7 +168,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Editar Articulo</h5>
+          <h5 class="modal-title" id="AgreA">Editar Articulo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -226,7 +226,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Editar Usuario</h5>
+          <h5 class="modal-title" id="AgreU">Editar Usuario</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
