@@ -36,7 +36,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/librerias/jquery.validate.min.js"></script>
+    <script src="js/logica/realizarBusqueda.js"></script>
     <script src="js/logica/miCuenta.js"></script>
     <title>Papelplot</title>
 </head>
@@ -49,9 +49,9 @@ if (!isset($_SESSION['ID_USUARIO'])) {
             </a>
 
             <div class="Search input-search">
-                <form action="input">
-                    <input class="enter" type="search" placeholder="Buscar...">
-                    <button class="bSearch" type="submit">
+                <form action="" method="POST">
+                    <input id="abuscar" class="enter" type="search" placeholder="Buscar...">
+                    <button id= "buscar" class="bSearch" type="button">
                         Buscar
                     </button>
                 </form>

@@ -14,16 +14,15 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
     <link rel="stylesheet" type="text/css" href="CSS/userLog.css">
-    <link rel="stylesheet" type="text/css" href="CSS/detalleArticulo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/logica/detalleArticulo.js"></script>
+    <script src="js/logica/buscarArticulo.js"></script>
     <script src="js/logica/realizarBusqueda.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,14 +32,14 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 <body>
     <header>
         <div class="container header-content">
-            <a href="userLogged.php" class="logo">
+            <a href="#" class="logo">
                 <img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot">
             </a>
 
             <div class="Search input-search">
                 <form action="" method="POST">
                     <input id="abuscar" class="enter" type="search" placeholder="Buscar...">
-                    <button id= "buscar" class="bSearch" type="button">
+                    <button id="buscar" class="bSearch" type="button">
                         Buscar
                     </button>
                 </form>
@@ -66,7 +65,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                 </li>
                                 <li><a href="micuenta.php"> Mi cuenta</a></li>
                                 <?php if (isset($_SESSION['ID_USUARIO']) && ($_SESSION['ADMIN'] == 1))
-                                        echo '<li><a href="AdminLogged.php"> Administrar</a></li>';
+                                    echo '<li><a href="AdminLogged.php"> Administrar</a></li>';
                                 ?>
                                 <li><a href="#"> Compras</a></li>
                                 <li id="logout"><a href="../controlador/accion/act_logout.php"> Salir</a></li>
@@ -76,7 +75,7 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
                     <span>|</span>
 
-                    <a href="carritoUser.php" id="irCarrito">
+                    <a href="carritoUser.php">
                         <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
                         <i class="iconNav fas fa-shopping-cart"></i>
                     </a>
@@ -94,52 +93,19 @@ if (!isset($_SESSION['ID_USUARIO'])) {
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="card mb-3 mt-3 ">
-                    <div class="row g-0">
-                        <div class="col-md-5 p-5">
-                            <img id="imgArt" src="img/cuadernoFlamenco.jpg" class="img-fluid rounded mx-auto d-block" alt="...">
-                        </div>
-                        <div class="col-md-7 d-flex flex-column">
-                            <div class="card-body">
-                                <h5 class="card-title" id="nombreArticulo"></h5>
-                                <h6 class="card-subtitle mb-3 mt-2" id="puntuación"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h6>
-                                <h6 class="card-subtitle mb-2">Descripción</h6>
-                                <p class="card-text" id="descripcion"></p>
-                                <h4 id="precio"></h4>
-                            </div>
-                            <div class="card-footer d-flex m-0">
-                                <a href="#" class="btn btn-success" id="addCarrito">Agregar al carrito</a> 
-                                <select class="form-select" aria-label="Default select example" id="nItems">
-                                    <option selected id="max"></option>
-                                </select>
-                                <!-- <form action="../controlador/accion/Act_Carrito/act_registrarCarrito.php" method="post">
-                                    <input name="idArticulo" type="text" placeholder="idArticulos">
-                                    <input name="cantidad" type="number" placeholder="cantidad">
-                                    <button type="submit">Enviar</button>
-                                </form> -->
-                            </div>
+            <Article class="categorias">
+                <div class="row">
+
+                    <div class=" col-md-12 mt-2 mb-4">
+                        <h2 id="tituloResultado"></h2> <br>
+                        <div class="row row-cols-1 row-cols-md-3 g-4" id="resultadosBusqueda">
+
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <h2>Comentarios</h2>
                 </div>
-                <div class="col-12" class="comentar">
-                    <h4 class="col-12">Hacer un comentario</h4>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="txtComent"></textarea>
-                        <label for="floatingTextarea">Comentar</label>
-                        <a href="#" class="btn btn-success mt-3" id="hacerComentario">Hacer comentario</a>
-                    </div>
-                </div>
+            </Article>
 
-                <div class="col-12 mt-4" id="comentarios">
-                </div>
-            </div>
         </div>
     </section>
 

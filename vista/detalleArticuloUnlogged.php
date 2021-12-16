@@ -18,6 +18,8 @@
     <script src="js/logica/detalleArticulo.js"></script>
     <script src="js/logica/validarDesdeVista.js"></script>
     <script src="js/logica/pop-upLogin.js"></script>
+    <script src="js/logica/updateIndex.js"></script>
+    <script src="js/logica/realizarBusquedaIndex.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,18 +29,18 @@
 <body>
 <header>
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="inicio.html" class="logo">
                 <img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot">
             </a>
-
             <div class="Search input-search">
-                <form action="input">
-                    <input class="enter" type="search" placeholder="Buscar...">
-                    <button class="bSearch" type="submit">
+                <form action="" method="POST">
+                    <input id="abuscar" class="enter" type="search" placeholder="Buscar...">
+                    <button id= "buscar" class="bSearch" type="button">
                         Buscar
                     </button>
                 </form>
             </div>
+
 
             <nav>
                 <div class="navItem nav-content">

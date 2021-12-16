@@ -35,5 +35,10 @@ if ($user != null) {
     
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }else{
+        header("Location: ../../../vista/inicio.html");
     }
+
+}else{
+    header("Location: ../../../vista/inicio.html");
 }

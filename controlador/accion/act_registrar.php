@@ -29,6 +29,7 @@ if ($estado != 0) {
 
     $_SESSION['ID_USUARIO'] = $user->getidUsuario();
     $_SESSION['NOMBRE_USUARIO'] = $user->getprimerNombre();
+    $_SESSION['ADMIN'] = $user->getesAdmin();
 
     if ($user->getesAdmin() == 1) {
         header("Location: ../../vista/administradorUsuarios.php");

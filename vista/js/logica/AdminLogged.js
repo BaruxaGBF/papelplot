@@ -37,7 +37,7 @@ $(document).ready(function () {
     })
 
     $('#Agregar').click(function (e){
-        $('#EleccionI').hide();
+        $('#Iimagen').show();
         VaciatModal();
     })
 

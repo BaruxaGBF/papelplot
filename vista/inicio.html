@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['ID_USUARIO'])) {
-    header("Location: ../index.html");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,25 +6,35 @@ if (!isset($_SESSION['ID_USUARIO'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
-    <link rel="stylesheet" type="text/css" href="CSS/userLog.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/378e7ea857.js" crossorigin="anonymous"></script>
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
-    <script src="js/logica/updateUser.js"></script>
-    <script src="js/logica/realizarBusqueda.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/logica/pop-upLogin.js"></script>
+    <script src="js/logica/validarDesdeVista.js"></script>
+    <script src="js/logica/updateIndex.js"></script>
+    <script src="js/logica/realizarBusquedaIndex.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <title>Papelplot</title>
 </head>
 
 <body>
-<header>
+    <header>
         <div class="container header-content">
-            <a href="userLogged.php" class="logo">
+            <a href="#" class="logo">
                 <img src="https://www.papelplot.net/images/logo-papelplot.png" alt="logo-papelplot">
             </a>
 
@@ -47,47 +50,25 @@ if (!isset($_SESSION['ID_USUARIO'])) {
             <nav>
                 <div class="navItem nav-content">
 
-                    <div class="userinfo">
-                        <button type="button" class="btUser">
-                            <i class="iconNav far fa-user"></i>
-                        </button>
-
-                        <div class="userMenu">
-                            <ul>
-                                <li class="userName">
-                                    <h4>
-                                        Hola,
-                                        <?php if (isset($_SESSION['ID_USUARIO'])) 
-							            echo $_SESSION['NOMBRE_USUARIO']; 
-						            ?>
-                                    </h4>
-                                </li>
-                                <li><a href="micuenta.php"> Mi cuenta</a></li>
-                                <?php if (isset($_SESSION['ID_USUARIO']) && ($_SESSION['ADMIN'] == 1))
-                                        echo '<li><a href="AdminLogged.php"> Administrar</a></li>';
-                                ?>
-                                <li><a href="#"> Compras</a></li>
-                                <li id="logout"><a href="../controlador/accion/act_logout.php"> Salir</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <button type="button" class="btlogin">
+                        <i class="iconNav far fa-user"></i>
+                    </button>
 
                     <span>|</span>
 
-                    <a href="carritoUser.php">
-                        <!-- <img class ="iconItem" src="img/107831.png" alt="carrito"> -->
+                    <a href="">
                         <i class="iconNav fas fa-shopping-cart"></i>
                     </a>
 
                     <span>|</span>
 
                     <a href="https://wa.me/573135493346" target="_blank">
-                        <!-- <img class ="iconItem" src="img/whats.png" alt="contacto"> -->
                         <i class="iconNav fab fa-whatsapp"></i>
                     </a>
                 </div>
             </nav>
         </div>
+
     </header>
 
     <div class="Baner d-flex justify-content-center align-items-center flex-column">
@@ -98,11 +79,65 @@ if (!isset($_SESSION['ID_USUARIO'])) {
         <button class="btn btn-success" onclick="location.href='https://youtu.be/dQw4w9WgXcQ'">Mas Informacion</button>
     </div>
 
+    <div class="pop-up">
+        <div class="pop-up-wrap">
+            <div class="pop-up-title" id="pop-title">
+                <h2>Papelplot</h2>
+                <P> Papeleria al por mayor y al detal</P>
+            </div>
+            <div class="pop-up-login">
+                <div class="rayitah"></div>
+                <i class="far fa-times-circle" id="closepop"></i>
+
+                <div class="tlogin">
+                    <h2> Inicia sesión en Papelplot</h2>
+                    <P> Por favor ingresa tus datos en el siguiente formulario</P>
+                    <form method="post" action="../controlador/accion/act_login.php" id="loginForm">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoini">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passini">
+                        <button class="ini-sesion" type="submit">Iniciar sesión</button>
+                        <button id="btnRegistro" class="ini-registrate">Regístrate</button>
+                    </form>
+                    <a href="olvidarContraseña.html">¿Olvidaste tu contraseña? recuperala aquí</a><br>
+                    <a href="#"><i class="iconlog fab fa-google"></i></a>
+                    <a href="#"><i class="iconlog fab fa-facebook"></i></a>
+                </div>
+
+                <div class="tRegistro">
+                    <h2> Regístrate en Papelplot</h2>
+                    <P> Por favor ingresa tus datos en el siguiente formulario</P>
+                    <form method="post" action="../controlador/accion/act_registrar.php" id="registForm">
+                        <input name="correo" class="login-email" placeholder="Escriba su correo electronico"
+                            id="correoregis">
+                        <input name="password" type="password" class="login-pass" placeholder="Digite su contraseña"
+                            id="passregis">
+                        <input name="password2" type="password" class="login-pass" placeholder="Confirme su contraseña"
+                            id="pass2regis">
+                        <input name="primerNombre" type="text" class="login-email" placeholder="Digite su primer nombre"
+                            id="fnameregis">
+                        <input name="segundoNombre" type="text" class="login-email"
+                            placeholder="Digite su segundo nombre, opcional" id="mnameregis">
+                        <input name="primerApellido" type="text" class="login-email"
+                            placeholder="Digite su primer apellido" id="ape1regis">
+                        <input name="segundoApellido" type="text" class="login-email"
+                            placeholder="Digite su segundo apellido" id="ape2regis">
+                        <input name="telefono" type="number" class="login-email" placeholder="Digite su teléfono"
+                            id="tel">
+                        <button id="btnRegistrar" class="ini-registrate" type="submit">Regístrarse</button>
+                    </form>
+                </div>
+
+                <div class="rayitah"></div>
+            </div>
+        </div>
+    </div>
+
     <section>
         <div class="container">
             <Article class="categorias">
                 <div class="row">
-
                     <div class="w-100"></div>
 
                     <div class="col-md-4">
@@ -111,19 +146,31 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                             <h2>Categorías</h2>
                         </div>
 
-                        <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-5 bg-body rounded" data-bs-ride="carousel">
+                        <div id="carouselExampleDark"
+                            class="carousel carousel-dark slide shadow p-3 mb-5 bg-body rounded"
+                            data-bs-ride="carousel">
                             <div style="margin: 2px">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9"
+                                        aria-label="Slide 2"></button>
                                 </div>
 
                                 <div class="carousel-inner">
@@ -167,12 +214,14 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                                     </div>
                                 </div>
 
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
 
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -200,7 +249,9 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                         <p>Av. el Progreso #40-36, Barranquilla, Atlántico</p>
 
                         <div class="responsive-iframe">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.466970942056!2d-74.80551072162321!3d10.992273838256468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d61a4d76987%3A0x175ec38e81b4aa7e!2sPapelplot!5e0!3m2!1ses!2sco!4v1639247960388!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.466970942056!2d-74.80551072162321!3d10.992273838256468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d61a4d76987%3A0x175ec38e81b4aa7e!2sPapelplot!5e0!3m2!1ses!2sco!4v1639247960388!5m2!1ses!2sco"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
 
@@ -231,7 +282,6 @@ if (!isset($_SESSION['ID_USUARIO'])) {
                         <li>Tel: 570-2570</li>
                         <li>Cel: 320-599-2053</li>
                         <li>Valledupar@papelplot.net</li>
-
                     </ul>
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">

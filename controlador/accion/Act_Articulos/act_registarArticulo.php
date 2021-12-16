@@ -25,6 +25,6 @@
         'msg' => $msg
     ];
 
-    //header("Location: ../../../vista/AdminLogged.php");
+    header("Location: ../../../vista/AdminLogged.php");
     
     echo json_encode($resultado);
