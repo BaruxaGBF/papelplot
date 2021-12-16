@@ -1,0 +1,11 @@
+#resultadosBusqueda{
+    max-height: 2311px;
+}
+
+.alargar{
+    overflow-y: auto;
+}
+
+.def{
+    overflow-y: hidden;
+}
